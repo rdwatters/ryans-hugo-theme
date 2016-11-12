@@ -1,0 +1,11 @@
+<div class="notification{{with .Get "color"}} {{.}}{{end}}" id="{{.Get "title" | urlize}}">
+    <a href="#" class="close close-notification notification-box">&#10005;</a>
+    <a href="#" class="dont-show-again notification-box">Don't Show Me This Again...</a>
+    <div class="notification-heading">{{.Get "title" | markdownify}}</div>
+    <div class="notification-content">
+      {{.Inner}}
+    </div>
+    {{if .Get "link"}}
+    <a href="{{.Get "link"}}" class="button notification-box">{{with .Get "linktitle" }}{{.}}{{else}}Find out more{{end}}</a>
+    {{end}}
+</div>

@@ -1,0 +1,23 @@
+/* Basic */
+
+// MSIE: Required for IEMobile.
+@-ms-viewport {
+  width: device-width;
+}
+
+// MSIE: Prevents scrollbar from overlapping content.
+body {
+  -ms-overflow-style: scrollbar;
+}
+
+body {
+  background-color:$body-bg-color;
+  &.is-loading {
+    *,
+    *:before,
+    *:after {
+      animation:none!important;
+      transition:none!important;
+    }
+  }
+}

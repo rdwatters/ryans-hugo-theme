@@ -1,0 +1,14 @@
+{{$tLen := (len .Title)}}
+{{if .IsPage}}
+	{{- if gt $tLen 80 -}}
+	<span class="extralong-title">{{.Title | markdownify}}</span>
+	{{- else if gt $tLen 60 -}}
+	<span class="long-title">{{.Title | markdownify}}</span>
+	{{- else if gt $tLen 35 -}}
+	<span class="mid-title">{{.Title | markdownify}}</span>
+	{{- else -}}
+	{{- .Title | markdownify -}}
+	{{- end -}}
+{{- else if .IsNode -}}
+	{{- .Title | humanize | title -}}
+{{- end -}}

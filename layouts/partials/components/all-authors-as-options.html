@@ -1,0 +1,4 @@
+<option disabled selected value> -- your name -- </option>
+{{range $person,$page := where .Site.Pages "Section" "team"}}
+<option value="{{$page.Title}}">{{$page.Title}}</option>
+{{end}}

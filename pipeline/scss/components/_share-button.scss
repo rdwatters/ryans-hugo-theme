@@ -1,0 +1,35 @@
+.share-wrapper {
+	display:flex;
+	align-items:center;
+	width:90%;
+	max-width:$content-max-width;
+	text-align:left;
+	margin-bottom:.75em;
+	i {
+		font-size:1.3em;
+	}
+	a {
+		color:$white;
+		font-size:1em;
+	}
+}
+
+.toc-wrapper {
+	.share-wrapper {
+		@include center;
+		width:90%;
+		text-align:right;
+		padding-right:.25em;
+		a {
+			font-size:.8em;
+			color:$base-font-color;
+			text-align:right;
+		}
+		i {
+			font-size:1.9em;
+			@include MQ(L){
+				font-size:1.4em;
+			}
+		}
+	}
+}

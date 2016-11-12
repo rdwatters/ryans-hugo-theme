@@ -1,0 +1,6 @@
+<!-- This prints out a list of all site tags; eg, to print out a list of all tags used in the /docs section of the site. -->
+<ul class="docs-taxonomy-list">
+	{{range $name,$val := .Site.Taxonomies.tags}}
+	<li>{{$name}}</li>
+	{{end}}
+</ul>

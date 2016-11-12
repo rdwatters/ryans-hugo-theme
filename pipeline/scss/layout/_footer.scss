@@ -1,0 +1,46 @@
+#site-footer {
+  display:block;
+  position:relative;
+  clear: both;
+  color: $footer-font-color;
+  background-color: $footer-bg-color;
+  height:60px;
+  z-index: 2;
+  .site-footer-inner-wrapper {
+    display:table;
+    width:100%;
+    vertical-align:middle;
+    height:60px;
+    text-align:center;
+  }
+  .copyright {
+    display:table-cell;
+    vertical-align:middle;
+    li {
+      display: block;
+      border-left: 0;
+      margin-left: 0;
+      padding-left: 0;
+      line-height: inherit;
+    }
+    @include MQ(M) {
+      font-size: 0.8em;
+      list-style: none;
+      padding-left: 0;
+      li {
+        border-left: solid 1px $footer-font-color;
+        color: $footer-font-color;
+        display: inline-block;
+        line-height: 1;
+        margin-left: 1em;
+        padding-left: 1em;
+        color: white;
+        &:first-child {
+          border-left: 0;
+          margin-left: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

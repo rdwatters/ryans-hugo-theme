@@ -1,0 +1,32 @@
+<ul class="list-articles {{.Data.Singular}}">
+  {{range .Data.Pages.ByPublishDate.Reverse}}
+  <li class="list-article">
+      <header>
+        {{- if .Params.image -}}
+          <img src="/assets/images/{{.Params.image}}" alt="">
+        {{- else if eq .Section "singles" -}}
+          <img src="/assets/images/icons/{{.Title | urlize}}-icon.jpg" alt="" class="icon-header-image">
+        {{- else -}}
+          <img src="/assets/images/icons/{{.Section | urlize}}-icon.jpg" alt="" class="icon-header-image">
+        {{- end -}}
+        {{if .Params.isdoc}}
+        <h2 class="title list-article-title">{{partial "components/titles.html" . }}</h2>
+        {{else}}
+        <h2 class="title list-article-title">{{partial "components/titles.html" . }}</h2>
+        {{end}}
+      </header>
+      <div class="list-content">
+        <div class="list-meta">
+          <div class="list-author">{{range .Params.authors}}<a href="/team/#{{. | urlize}}">{{.}}</a>{{end}}</div>
+          <time class="publish-date" datetime="{{.PublishDate}}">{{.PublishDate.Format "January 2, 2006"}}</time>{{if ne .Section "singles"}}<span class="reading-time">{{.ReadingTime}}-min read</span>{{end}}
+        </div>
+        <p class="description">{{.Description | markdownify }}</p>
+        {{if.Params.isdoc}}
+        <a href="/{{.Section}}/#{{.Title|urlize}}" class="button lightbg">Read more...</a>
+        {{else}}
+        <a href="{{.Permalink}}" class="button lightbg">Read more...</a>
+        {{end}}
+      </div>
+  </li>
+  {{end}}
+</ul>

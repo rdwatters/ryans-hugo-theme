@@ -1,0 +1,4 @@
+<figure class="modal{{with .Get "class"}} {{.}}{{end}}">
+			<img{{with .Get "src"}} src="/assets/images/{{.}}"{{end}} {{with .Get "imgclass"}}class="{{.}}"{{end}}>
+	<figcaption class="shortcode-description">{{.Inner}}</figcaption>
+</figure>

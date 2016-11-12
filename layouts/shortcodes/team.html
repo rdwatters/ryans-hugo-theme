@@ -1,0 +1,6 @@
+<!-- This shortcode lists all the team members under the /digital-team section of the site -->
+{{range where .Site.Pages "Section" "==" "digital-team"}}
+<ul class="docs-taxonomy-list">
+<li>{{.Title}}</li>
+</ul>
+{{end}}

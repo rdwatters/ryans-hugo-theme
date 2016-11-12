@@ -1,0 +1,129 @@
+<form id="create-new-page">
+    <a class="button" id="clear-all"><i class="fa fa-eraser" aria-hidden="true"></i> Get Blank Page</a>
+    <fieldset>
+        <div class="half-form first">
+            <span class="form-section-heading">Page Front Matter</span>
+            <div class="form-row">
+                <radiogroup id="type-of-page">
+                    <label for="">1. Content type: <span class="required">*</span></label>
+                    <input class="req" type="radio" id="post" name="contenttype" value="post" />
+                    <label for="post">Blog post</label>
+                    <input type="radio" id="doc" name="contenttype" value="doc" />
+                    <label for="doc">Documentation</label>
+                </radiogroup>
+                <span class="help-text"><a href="/docs/#content-types" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> What's the difference in content types?</span></a>
+            </div>
+            <div class="form-row">
+                <label for="title" class="titles">2. Title: <span class="required">*</span></label>
+                <input class="req" name="Title" type="text" id="title" maxlength="90" placeholder="90 characters or less..." required>
+                <span class="character-count"></span>
+            </div>
+            <div class="form-row">
+                <label for="subtitle" class="titles">3. Subtitle: <span class="required">*</span></label>
+                <input type="text" class="req" name="Subtitle" id="subtitle" maxlength="90" placeholder="90 characters or less...">
+                <span class="character-count"></span>
+            </div>
+            <div class="form-row">
+                <div>
+                    <label for="publishdate">4. Publish Date: <span class="required">*</span></label>
+                    <input class="req" name="Publish Date" type="text" id="publishdate" placeholder="YYYY-MM-DD">
+                    <span class="help-text"><a href="/docs/#publishing-schedule" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> Why do I need a Publish Date?</a></span>
+                    <input type="text" id="date" hidden>
+                </div>
+            </div>
+            <div class="form-row">
+                <div id="image-div">
+                    <label for="image" id="image-label">5. Image: <span class="required">*</span></label>
+                    <br>
+                    <input name="Image" type="text" id="image" placeholder="urlized-image-filename.jpg">
+                    <span class="help-text">Drop images into <a href="{{.Site.Params.ghimagedir}}" target="_blank">this folder on GitHub. <i class="fa fa-github" aria-hidden="true"></i></a><br><a href="/docs/#images-and-figures"><i class="fa fa-question-circle" aria-hidden="true"></i> Tell me more about images and figures.</a></span>
+                </div>
+                <div id="weight-div">
+                    <label for="weight" id="weight-label">5. Weight: <span class="required">*</span></label>
+                    <br>
+                    <input name="Weight" type="text" id="weight" placeholder="Requires two digits...01,02,03,etc">
+                    <span class="help-text"><a href="/docs/#content-types" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> What is page "weight?"</span></a>
+                </div>
+            </div>
+            <div class="form-textfield">
+                <label for="description">6. Description: <span class="required">*</span></label>
+                <textarea class="req" name="Description" id="description" rows="4" placeholder="Describe your page in 160 characters or less..." maxlength="160"></textarea>
+                <span class="character-count"></span>
+            </div>
+            <div class="form-row">
+                <div>
+                    <label for="author">7. Author: <span class="required">*</span></label>
+                    <select name="Author" id="author" class="selection req" required>
+                        {{partial "components/all-authors-as-options.html" . }}
+                    </select>
+                </div>
+                <div>
+                    <label for="draft">8. Draft? <span class="required">*</span></label>
+                    <select name="draft" id="draft" class="selection">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                    <span class="help-text"><a href="/docs/#drafts-and-publish-date" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> What does "draft" status mean?</a></span>
+                </div>
+            </div>
+            <div class="form-row categories">
+                <div>
+                <label for="Category">9. Category <span class="required">*</span></label>
+                <select name="Category" id="category" class="category selection req">
+                <option selected value> -- category -- </option>
+                {{partial "components/all-categories-as-options.html" . }}
+                </select>
+                <span class="help-text"><a href="/docs/#taxonomies" target="_blank"><i class="fa fa-question-circle" aria-hidden="true"></i> <em>Tags</em> vs <em>categories</em>?</a></span>
+                </div>
+            </div>
+            <div class="form-row tags">
+                <label>10. Tags:</label>
+                <div class="tag-selections">
+                    <select name="tag1" id="tag1" class="editor-tag selection">
+                        <option selected value> -- tag 1 -- </option>
+                        {{partial "components/all-tags-as-options.html" . }}
+                    </select>
+                    <select name="tag2" id="tag2" class="editor-tag selection">
+                        <option selected value> -- tag 2 -- </option>
+                        {{partial "components/all-tags-as-options.html" . }}
+                    </select>
+                </div>
+                <div>
+                    <label for="tag3">11. Additional Tags: </label>
+                    <input type="text" id="tag3" placeholder="additional,tags,here" class="selection">
+                    <span class="help-text">Separate additional tags with ","</span>
+                </div>
+                <div class="denotes-required"><span class="required">* </span> Denotes required fields.</div>
+            </div>
+
+        </div>
+        <div class="half-form second">
+            <!-- NOTE: textarea.content is el assigned to simplemde -->
+            <div class="content-textfield">
+                <label for="content" class="form-section-heading">Body Copy</label>
+                <div class="label">12. Markdown Editor</div>
+                <textarea name="Content" id="content" cols="30" rows="18" placeholder="Create your body copy in markdown..."></textarea>
+            </div>
+            <div class="form-textfield">
+                <label for="description">13. Comments: </label>
+                <textarea name="Comments" id="comments" rows="4" placeholder="Additional comments for future development and collaborators. This information is not visible to end users..."></textarea>
+            </div>
+            <div class="body-copy">
+            {{.Content}}
+            </div>
+        </div>
+    </fieldset>
+    <div id="file-title-wrapper">
+        <span id="download-file"><i class="fa fa-download" aria-hidden="true"></i>14. DOWNLOAD: </span>
+        <span id="slug" contenteditable="true"></span><span class="file-extension"><code>.md</code></span>
+    </div>
+</form>
+<div class="missing-fields-wrapper">
+    <a href="#" id="close-missing">&#10006; Close</a>
+    <h3>Missing Fields:</h3>
+    <div id="missing-fields">
+        <ol class="missing-items">
+        </ol>
+    </div>
+</div>
+<div>

@@ -1,0 +1,13 @@
+{{define "main"}}
+<main id="main-content">
+	<article>
+		{{partial "components/edit-page.html" . }}
+		{{partial "components/hero.html" . }}
+  	<div id="{{.Section}}" class="body-copy">
+    {{.Content}}
+  	</div>
+  </article>
+  {{partial "components/previous-and-next-links.html" . }}
+  {{partial "components/table-of-contents-single-article" . }}
+</main>
+{{end}}

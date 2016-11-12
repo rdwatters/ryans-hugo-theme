@@ -1,0 +1,24 @@
+<footer class="post-footer no-print">
+  {{with .PrevInSection }}
+      <a class="post-bottom-link prev-link" href="{{ .Permalink }}">
+        <section class="bottom-link-section" style="background-image:url(/assets/images/{{ .Params.image }});">
+          <div class="bottom-link-info">
+              <div class="button prev darkbg center">PREV</div>
+              <h2 class="title darkbg">{{partial "components/titles.html" . }}</h2>
+              <time class="publish-date darkbg" datetime={{.PublishDate}}>{{.PublishDate.Format "January 2, 2006"}}</time>
+          </div>
+        </section>
+        </a>
+  {{ end }}
+  {{ with .NextInSection }}
+        <a class="post-bottom-link next-link" href="{{ .Permalink }}">
+        <section class="bottom-link-section" style="background-image:url(/assets/images/{{ .Params.image }});">
+          <div class="bottom-link-info">
+              <div class="button next darkbg center">Next</div>
+              <h2 class="title darkbg">{{partial "components/titles.html" . }}</h2>
+              <time class="publish-date darkbg" datetime={{.PublishDate}}>{{.PublishDate.Format "January 2, 2006"}}</time>
+          </div>
+        </section>
+        </a>
+  {{ end }}
+</footer>

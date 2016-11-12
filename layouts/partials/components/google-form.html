@@ -1,0 +1,12 @@
+<a href="#" id="open-google-form">
+  <div>
+  	<i class="fa fa-envelope" aria-hidden="true"></i>
+    <span>{{.Site.Params.googleformbuttontext}}</span>
+  </div>
+</a>
+<div id="google-form-wrapper">
+	<a href="#" id="close-google-form"><i class="icon-close"></i></a>
+  <div class="inner-form-wrapper responsive-wrapper-dimensions" style="overflow: auto;">
+    <iframe id="submit-content-iframe" src="{{.Site.Params.googleformurl}}" width="100%" scrolling="yes" height="1200" frameborder="0" marginheight="0" marginwidth="0" style="font-family:'proximanova'!important;">Loading...</iframe>
+  </div>
+</div>

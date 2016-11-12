@@ -1,0 +1,27 @@
+.github-directories-wrapper {
+  @include center;
+  max-width:800px;
+  margin-top: -1.5em;
+  margin-bottom: 1.5em;
+}
+
+.github-directories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-around;
+  margin-bottom:1em;
+  a.github-button {
+    width: 200px;
+    text-align: center;
+    border-color: $brand-primary;
+    background-color: $brand-primary;
+    color: $white;
+    box-shadow: none;
+    margin-bottom:1em;
+    font-size:.9em;
+    &:after,
+    &:before {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<!-- <script>(function() {document.body.id = '';})();</script> -->
+<script src="/assets/js/vendor/lunr.min.js"></script>
+<!-- NOTE that removing jQuery will break all current calls to velocity.js -->
+{{if .Site.Params.includejq}}
+<script src="/assets/js/vendor/jquery-2.2.4.min.js"></script>
+{{end}}
+<script src="/assets/js/vendor/chart.min.js"></script>
+
+<script src="/assets/js/script.min.js" async></script>
+<script src="/assets/js/vendor/mediaelement-and-player.min.js" async></script>
+<script src="/assets/js/charts-configuration.js" async></script>
+{{- partial "footer/google-analytics.html" . -}}

@@ -1,0 +1,265 @@
+aside#toc-single-article {
+  transition: all .3s ease-in-out;
+  position: fixed;
+  bottom: 45px;
+  left: 3%;
+  width: 75%;
+  max-width: 300px;
+  padding: 0px;
+  margin: 0px;
+  visibility: hidden;
+  overflow: hidden;
+  transform: scale(0);
+  transform-origin: bottom left;
+  z-index: 10;
+  background-color: darken($body-bg-color, 5%);
+  @include card(1);
+  &.article-toc-open {
+    transform: scale(1);
+    visibility: visible;
+    z-index: 10;
+    a {
+      color: $base-font-color;
+    }
+  }
+  div.toc-wrapper {
+    position: relative;
+    max-height: calc(100vh - 125px);
+    overflow-y: scroll;
+  }
+  h4.toc-title {
+    font-weight: $heading-font-base-weight;
+    weight: 400;
+    margin-bottom: 0px;
+    font-size: 1em;
+    line-height: 1.2;
+    display: table-cell;
+    vertical-align: middle;
+    color: $white;
+    border-color: $white;
+    a {
+      color: $white;
+    }
+  }
+  div.toc-subtitle {
+    font-family: $heading-font-family;
+    color: $base-font-color;
+    font-size: 1em;
+    line-height: 1.2;
+    margin-bottom: 0px;
+    color: $base-font-color;
+  }
+}
+
+header.toc-header {
+  box-sizing: border-box;
+  display: table;
+  width: 100%;
+  position: relative;
+  background-color: $cap-black;
+  color: $white;
+  padding: {
+    top: .5em;
+    bottom: .5em;
+    left: 16px;
+    right: 16px;
+  }
+}
+
+#TableOfContents {
+  font-family: $heading-font-family;
+  padding: 0px;
+  margin: 0px;
+  > ul {
+    margin-left: 0px;
+    padding-left: 0px;
+    @include center;
+    width: 90%;
+    margin-top: .75em;
+    list-style: none;
+    > li {
+      margin-left: 0px;
+      padding-left: 0px;
+      margin-bottom: .3em;
+      line-height: 1em;
+      list-style: none;
+      > ul {
+        margin-bottom: 50px;
+        margin-top: 1em;
+        line-height: 1em;
+        > li {
+          padding-left: 0px;
+          list-style: none;
+          margin-left: 0px;
+          clear: both;
+          color: $white;
+          line-height: 1em;
+          margin-bottom: 1em;
+          font-size: .9em;
+          > ul {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+div.toc-contents {
+  position: relative;
+  border: none;
+  // background-color: $body-bg-color;
+}
+
+@include MQ(L) {
+  aside#toc-single-article {
+    transition: all .3s ease-in-out;
+    position: fixed;
+    top: 125px;
+    bottom: auto;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    transform: none;
+    width: 180px;
+    opacity: 0;
+    z-index: -1;
+    background-color: $body-bg-color;
+    &.fadeIn {
+      transition: all .3s ease-in-out;
+      opacity: 1;
+      z-index: 999;
+    }
+    h4.toc-title {
+      font-size: 1em;
+      font-weight: 600;
+    }
+    div.toc-wrapper {
+      position: relative;
+    }
+    nav#TableOfContents {
+      border-radius: 0em;
+      margin-top: 0px;
+      display: block;
+      width: 100%;
+      padding: .25em .5em;
+      margin: 0px;
+      > ul {
+        display: block;
+        margin: 0px;
+        padding-left: 0px;
+        width: 100%;
+        > li {
+          min-height: 100%;
+          width: 100%;
+          > ul {
+            margin-bottom: 0px;
+            > li {
+              font-size: .8em;
+              display: block;
+              height: auto;
+              margin-bottom: .75em;
+              line-height: 1.1;
+              a {
+                color: $base-font-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include MQ(XL) {
+  aside#toc-single-article {
+    position: fixed;
+    min-width: 210px;
+    width: 210px;
+    max-width: 210px;
+  }
+}
+
+#toggle-toc-single-article {
+  position: fixed;
+  background-color: $body-bg-color;
+  bottom: 45px;
+  left: 3%;
+  line-height: 1.3em;
+  display: table;
+  vertical-align: center;
+  padding-bottom: .5em;
+  width: $blog-post-toc-button-size;
+  height: $blog-post-toc-button-size;
+  z-index: 101;
+  @include card(1);
+  &:hover {
+    @include card(3);
+  }
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: $button-border-radius;
+  border: 1px solid $base-font-color;
+  opacity: 0;
+  &.fadeIn {
+    transition: all .3s ease-in-out;
+    opacity: 1;
+  }
+  &.article-toc-open {
+    z-index: 99;
+    opacity: 1;
+    border: none;
+    box-shadow: none;
+    background-color: darken($body-bg-color, 5%);
+    &:after {
+      content: '\00d7';
+      color: $base-font-color;
+      font-weight: 600;
+      font-size: 2em;
+      display: block;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      line-height: $blog-post-toc-button-size;
+      width: $blog-post-toc-button-size;
+      height: $blog-post-toc-button-size;
+      text-align: center;
+    }
+    .ellipsis {
+      display: none;
+    }
+  }
+  @include MQ(L) {
+    display: none;
+  }
+}
+
+span.ellipsis {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: .5em;
+  font-size: 1em;
+  color: $base-font-color;
+  @include MQ(L) {
+    display: none;
+  }
+}
+
+.animated {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+}
+
+a.toc-pagetop-link {
+  text-decoration: none;
+}
+
+.toc-contents #TableOfContents ul > li > ul > li a {
+  text-decoration: none;
+}
+
+.posts-archive {
+  opacity: 1!important;
+}

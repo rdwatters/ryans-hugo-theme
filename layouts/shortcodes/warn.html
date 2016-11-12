@@ -1,0 +1,6 @@
+<aside class="callout warn">
+	<h4 class="callout-heading"><i class="icon-warn" aria-hidden="true"></i> {{with .Get "title" }}{{.|markdownify}}{{else}}Warning{{end}}</h4>
+	<div class="callout-content warn">
+	{{- .Inner -}}
+	</div>
+</aside>

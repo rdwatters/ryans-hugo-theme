@@ -1,0 +1,13 @@
+{{define "main"}}
+<div id="main-content" class="alt">
+  <div class="body-copy">
+    <header class="major">
+      <h1>{{.Title}}</h1>
+    </header>
+    {{with .Params.image}}
+    <span class="image main"><img src="/assets/images/{{.}}" alt="" /></span>
+    {{end}}
+    {{.Content}}
+  </div>
+</div>
+{{end}}

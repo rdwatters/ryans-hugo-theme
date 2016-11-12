@@ -1,0 +1,23 @@
+<section class="author-articles">
+	{{$authorName := .Title}}
+	<ul class="authored">
+	<!-- Range through all sections except the docs -->
+	{{- range where .Site.Pages.ByPublishDate.Reverse "Section" "!=" "theme-docs" -}}
+	<!-- Check for author name in article array in front matter of page -->
+	{{- if in .Params.authors $authorName -}}
+	<!-- If the page is leveraging the documentation layout, change URL according to go to hash rather than full URL -->
+		{{if .Params.isdoc }}
+		<li><a href="/{{.Section}}#{{.Title|urlize}}"> <i class="icon-{{.Section}}"></i> {{.Title}} &nbsp;|&nbsp;
+		<time datetime="{{.PublishDate}}">{{.PublishDate.Format "January 2, 2006"}}</time></a></li>
+		{{- else if eq .Section "blog" -}}
+		<li><a href="{{.Permalink}}"><i class="icon-{{.Section}}"></i> {{.Title}} &nbsp;|&nbsp;
+		<time datetime="{{.PublishDate}}">{{.PublishDate.Format "January 2, 2006"}}</time></a></li>
+		{{- else if eq .Section "singles" -}}
+		<!-- Since pages in the "singles" section have no root/list page, the icon generate for each page (also in main navigation), requires the icon named after the page rather than the section; that is, otherwise all of these links would have the i.icon-singles (doesn't exist) to the left of the title -->
+		<li><a href="{{.Permalink}}"><i class="icon-{{.Title|urlize}}"></i> {{.Title}} &nbsp;|&nbsp;
+		<time datetime="{{.PublishDate}}">{{.PublishDate.Format "January 2, 2006"}}</time></a></li>
+		{{- end -}}
+	{{end}}
+	{{end}}
+	</ul>
+</section>

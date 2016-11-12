@@ -1,0 +1,3 @@
+{{range $k,$v := .Site.Taxonomies.categories}}
+<option value="{{$k | humanize | lower}}">{{$k | humanize | lower}}</option>
+{{end}}

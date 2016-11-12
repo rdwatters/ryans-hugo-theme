@@ -1,0 +1,313 @@
+/***********ICONS STYLES****************/
+
+//1. Button Icons
+//2. Site Sections Icons
+//3. Animated Icons
+//4. Documentation Page Header Icons
+//1. Button Icons
+.next,
+.button.next,
+a.next,
+button.next {
+  &:after {
+    content: "\F101";
+    font-family: "fontello";
+    margin-left: .5em;
+  }
+  &:hover::after {
+    transition: margin 0.3s ease-in-out;
+    margin-left: .75em;
+  }
+}
+
+.button.prev,
+a.prev {
+  &:before {
+    content: '\F100';
+    font-family: "fontello";
+    margin-right: .5em;
+  }
+  &:hover::before {
+    transition: margin 0.3s ease-in-out;
+    margin-right: .75em;
+  }
+}
+
+.close {
+  text-align: center;
+  display: block;
+  &:after {
+    @include center;
+    display: block;
+    content: 'CLOSE';
+    font-size: .3em;
+    margin-top: -1em;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  i[class^="icon-"]:before {
+    margin-left: 0px;
+    margin-right: .15em;
+  }
+}
+
+//2. Site Section Icons
+//Modifies placement of i.icon-* in section page title (eg, /blog)
+h1.title {
+  i.icon-content-owners:before {
+    margin-right: 0px;
+    margin-left: 0em;
+    font-size: 1.2em;
+    vertical-align: bottom;
+  }
+  i.icon-content-owners-list:before {
+    margin-right: 0px;
+  }
+  i.icon-site-updates:before {
+    margin-right: 0em;
+    margin-left: 0em;
+  }
+  i.icon-blog:before {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  i.icon-digital-team:before {
+    margin-left: 0px;
+    margin-right:.5em;
+  }
+  i.icon-submit-content:before {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  i.icon-docs:before {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  i.icon-digital-writers-guide:before {
+    margin-left: 0em;
+    margin-right: .05em;
+  }
+  i.icon-process:before {
+    margin-left: 0em;
+    margin-right: 0em;
+    background-size: cover;
+  }
+}
+
+.icon-digital-team {
+  margin-right:.5em;
+}
+
+//Shifts .icon-cap-logo for homepage link in menu
+li > a {
+  i.icon-cap-logo:before {
+    margin-left: -.1em;
+    margin-right: .5em;
+  }
+  i.icon-content-owners:before,
+  i.icon-content-owners-list:before {
+    margin-left: -.05em;
+    margin-right: .35em;
+  }
+  &.site-menu-link {
+    i.icon-cap-logo:before,
+    i.icon-digital-team:before {
+      margin-left: -.25em;
+    }
+  }
+}
+
+//3. Animated Icons
+//wrapper for Font Awesome down arrow at bottom of full-screen hero on blog posts
+.scroll-down {
+  display: block;
+  width: 100%;
+  position: absolute;
+  margin-bottom:0px;
+  left: 0px;
+  text-align: center;
+  z-index: 10;
+  animation: lookdown 900ms infinite;
+  a#scroll-down {
+    color: $white;
+    opacity: .7;
+    i.icon-down:before {
+      font-size: 1.5em;
+      font-weight: 100;
+    }
+  }
+  @include MQ(M){
+    bottom:0px;
+    margin-bottom:0px;
+  }
+}
+
+//bouncing scroll icon in desktop search results
+.icon-scroll.in-search-results {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  animation: lookdown 900ms infinite;
+  z-index: 99;
+  display: none;
+  font-size: 2em;
+  font-weight: bold;
+  color: $brand-primary;
+  &:before {
+    margin-right: 0px;
+  }
+}
+
+//animation used for scroll (in desktop search results) and post hero
+@keyframes lookdown {
+  0% {
+    bottom: 0px;
+  }
+  30% {
+    bottom: 6px
+  }
+  50% {
+    bottom: 2px;
+  }
+  100% {
+    bottom: 0px
+  }
+}
+
+//rotating arrow in tangent shortcode
+i.icon-next {
+  position: absolute;
+  right: 10px;
+  &:before {
+    transition: all .3s ease-in-out;
+    transform: rotate(0deg);
+  }
+  &.open::before {
+    transition: all .3s ease-in-out;
+    transform: rotate(90deg);
+  }
+}
+
+//4.Documentation Page Header Icons
+.documentation-section-title:hover {
+  a.documentation-header-link {
+    i.icon-link {
+      opacity: 1;
+    }
+  }
+}
+
+a.documentation-header-link {
+  border-width: 0px;
+  position: absolute;
+  left: -1.2em;
+  top: 55px;
+  font-size: .75em;
+  vertical-align: middle;
+  box-shadow: none;
+  &:hover {
+    background-color: transparent;
+    color: $link-underline-color;
+    box-shadow: none;
+  }
+  i.icon-link {
+    transition: opacity .3s ease-in-out;
+    opacity: 0;
+    &:hover {
+      transition: opacity .3s ease-in-out;
+      opacity: 1;
+    }
+  }
+}
+
+//5. Icons for file formats in Different Code Snippets
+span.filename[title$=".md"] {
+  &:after {
+    font-family: 'fontello';
+    content: '\e83e';
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    position: absolute;
+    right: 1em;
+  }
+}
+
+span.filename[title$=".md"]:after,
+span.filename[title$=".html"]:after,
+span.filename[title$=".css"]:after,
+span.filename[title$=".js"]:after,
+span.filename[title$=".scss"]:after {
+  font-family: 'fontello';
+  display: inline-block;
+  height: 1.3em;
+  width: 1.3em;
+  position: absolute;
+  right: 1em;
+  top:.25em;
+}
+
+span.filename[title$=".md"]:after {
+  content: '\e83e';
+}
+
+span.filename[title$=".html"]:after {
+  content: '\f13b';
+}
+
+span.filename[title$=".css"]:after {
+  content: '\f13c';
+}
+
+span.filename[title$=".js"]:after {
+  content: '\e846';
+  background-color:$javascript;
+}
+
+span.filename[title$=".scss"]:after {
+  content: '\e868';
+  color: $javascript;
+}
+
+//6. Icons Tooltip (hover) for Documentation
+[data-tooltip="icon-tooltip"] {
+  position: relative;
+  &:hover::after {
+    display: inline-block;
+    position: absolute;
+    bottom: .9em;
+    font-size: .7em;
+    color: white;
+    min-width: 60px;
+    padding: .25em .5em;
+    background-color: $base-font-color;
+    content: attr(class);
+    white-space: nowrap;
+  }
+}
+
+//corrects absolute positioning of .icon-next in icons.html shortcode
+.icon-block > i.icon-next {
+  position: relative;
+  right: 0px;
+}
+
+.icon-wercker {
+  &:before {
+    content:' ';
+    display:inline-block;
+    width:1em;
+    height:1em;
+    background-image:url(/assets/images/icons/wercker-icon.svg);
+    background-size: contain;
+  }
+}
+.toc-link {
+  > .icon-wercker:before {
+    background-image:url(/assets/images/icons/wercker-icon-white.svg);
+  }
+}

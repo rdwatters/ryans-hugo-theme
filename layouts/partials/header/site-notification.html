@@ -1,0 +1,14 @@
+<!-- For site-level notifications -->
+{{if .Site.Params.addsitenotification}}
+<div class="notification" id="{{.Site.Params.sitenotificationtitle | urlize}}">
+    <a href="#" class="close close-notification">&#10005;</a>
+    <a href="#" class="dont-show-again">Don't Show Me This Again...</a>
+    <div class="notification-heading">{{.Site.Params.sitenotificationtitle}}</div>
+    <div class="notification-content">
+      {{.Site.Params.sitenotificationcopy | markdownify}}
+    </div>
+    {{if .Site.Params.sitenotificationlink}}
+    <a href="{{.Site.Params.sitenotificationlink}}" class="button">{{.Site.Params.sitenotificationlinktext | markdownify}}</a>
+    {{end}}
+</div>
+{{end}}

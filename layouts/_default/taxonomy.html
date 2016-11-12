@@ -1,0 +1,11 @@
+{{ define "main" }}
+<main id="main-list">
+  {{$data := .Data}}
+  <section id="hero" class="site-section" {{with .Site.Params.defaultherobgcolor}}style="background-color:{{.}}"{{end}}>
+    <header class="hero-header">
+      <h1 class="title darkbg"><a class="taxonomy-name" href="/{{$data.Plural}}">{{$data.Plural}}</a>: {{ .Title }}</h1>
+    </header>
+  </section>
+  {{partial "components/article-listing.html" . }}
+</main>
+{{ end }}

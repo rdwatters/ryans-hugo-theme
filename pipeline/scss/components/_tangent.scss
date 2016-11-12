@@ -1,0 +1,61 @@
+aside.tangent {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin-top: .5em;
+  margin-bottom: 1em;
+  h4.tangent-heading {
+    width: 100%;
+    font-size: 1em;
+    color: white;
+    background-color: $tangent;
+    z-index: -1;
+    font-family: $base-font-family;
+    padding: .15em .3em;
+    margin: 0px;
+    cursor: pointer;
+    text-transform: none;
+    padding-top: .25em;
+    padding-bottom: .25em;
+  }
+}
+
+//for rotating icon in tangent header, see _icons.scss
+a.tangent-button {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: $content-max-width;
+  background-color: $tangent;
+  text-align: left;
+  color: $white;
+  padding: {
+    top: .25em;
+    bottom: .25em;
+    left: .25em;
+  }
+  margin:0px;
+  @include on-event {
+    outline: none;
+    border: none;
+  }
+}
+
+div.tangent-content {
+  transform-origin: top;
+  transition: transform .2s ease-in-out;
+  width: 100%;
+  margin: 0px;
+  font-size: .9em;
+  padding: .5em .75em;
+  border-left: 1px solid $tangent;
+  border-right: 1px solid $tangent;
+  border-bottom: 1px solid $tangent;
+  display: none;
+  p {
+    line-height: 1.3;
+    margin-bottom: .5em;
+  }
+}

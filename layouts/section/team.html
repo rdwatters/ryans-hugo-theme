@@ -1,0 +1,41 @@
+{{define "main"}}
+{{partial "components/hero.html" . }}
+<main id="main-content">
+  <section class="team-listing">
+    <ul class="team-list">
+      {{range .Data.Pages }}
+      <li class="team-member">
+        <a href="#{{.Title|urlize}}" class="team-member-link">
+          <img src="/assets/images/team/{{.Title|urlize}}.jpg" alt="Photo of team member, {{.Title}}" class="team-member-headshot">
+          <div class="team-member-list-info">
+            <h2 class="title darkbg team-member-name">{{.Title}}</h2>
+            <span class="team-member-title">{{.Params.title_job | markdownify }}</span>
+          </div>
+        </a>
+      </li>
+      {{end}}
+    </ul>
+  </section>
+  {{range .Data.Pages.ByTitle }}
+  <section class="team-member-detail" id="{{.Title | urlize}}">
+  {{partial "components/edit-page.html" .}}
+  <div class="team-member-detail-inner-wrapper">
+    <a href="#" class="close-team-detail"><i class="icon-close"></i></a>
+    <div class="team-member-detail-image-wrapper"><img src="/assets/images/team/{{.Title|urlize}}.jpg" alt="Im age of team member, {{.Title}}"></div>
+    <article class="team-member-bio">
+      <header>
+        <h1 class="title">{{.Title}}</h1>
+        <span>{{.Params.title_job | markdownify}}</span>
+      </header>
+      {{- .Content -}}
+      <h4 class="authored-content">Authored Content</h4>
+      {{- partial "components/author-articles.html" . -}}
+    </article>
+  </div>
+  </section>
+  {{end}}
+</main>
+{{end}}
+{{define "addscripts"}}
+<script src="/assets/js/page-specific-scripts/team.js"></script>
+{{end}}

@@ -1,0 +1,14 @@
+{{if or (and (gt .WordCount 500) (not .Params.removetoc)) (.Params.forcetoc) }}
+<aside class="single-article-toc smooth-links" id="toc-single-article">
+    <div class="toc-wrapper">
+        <header class="toc-header">
+            <h4 class="title toc-title"><a href="#page-top">{{.Title | markdownify}}</a>
+        </header>
+        <div class="toc-contents">
+            {{ .TableOfContents }}
+        </div>
+        {{partial "components/share-button.html" . }}
+    </div>
+</aside>
+<a href="#" id="toggle-toc-single-article"><span class="ellipsis">ToC</span></a>
+{{end}}

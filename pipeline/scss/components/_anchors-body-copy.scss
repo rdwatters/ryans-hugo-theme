@@ -1,0 +1,33 @@
+.body-copy a,
+.editor-preview-active a,
+.editor-preview-active-side a, .team-member-bio a {
+  border-bottom: 0px solid $link-underline-color;
+  box-shadow: inset 0 -.1em 0 $link-underline-color;
+  color: $link-color;
+  transition: background .3s cubic-bezier(.33, .66, .66, 1);
+  text-decoration: none;
+  &:hover {
+    transition: background .3s cubic-bezier(.33, .66, .66, 1);
+    background: $link-underline-color;
+    color: $white;
+  }
+}
+
+a#bigbutton {
+  box-shadow: none;
+  display: block;
+  &:hover {
+    background-color: transparent;
+  }
+}
+a.image-link {
+  border:0px;
+  box-shadow:none!important;
+  &:hover {
+    background:none!important;
+  }
+}
+
+li a {
+  display:inline;
+}

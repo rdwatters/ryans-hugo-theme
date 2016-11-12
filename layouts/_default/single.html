@@ -1,0 +1,14 @@
+{{define "main"}}
+<main id="main-content" class="alt">
+    {{partial "components/hero.html" . }}
+    {{with .Params.image}}
+    <span class="image main"><img src="/assets/images/{{.}}" alt="" /></span>
+    {{end}}
+    <div class="body-copy">
+    {{.Content}}
+    {{if not .Params.innav}}
+    {{partial "components/table-of-contents-single-article.html" . }}
+    {{end}}
+    </div>
+</main>
+{{end}}

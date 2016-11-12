@@ -1,0 +1,6 @@
+blog: "Add your description for blog in data/sectiondescriptions.yml"
+team: "Add your description for team in data/sectiondescriptions.yml"
+docs: "Add your description for docs in data/sectiondescriptions.yml"
+themedocs: "This documentation is the single point of reference for content editors,  writers, and maintainers of Your Site Title."
+singlepage: "This single page is in the global nav and therefore has a description in data/sectiondescriptions.yml"
+editor: "The editor is built to make creating and editing content easier for non-technical users."

@@ -1,0 +1,49 @@
+.callout {
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: .75em;
+  > h4.callout-heading {
+    color: $white;
+    background-color: $base-font-color;
+    font-size: 1.1em;
+    padding: {
+      top: .25em;
+      bottom: .25em;
+      left: .25em;
+    }
+    margin: {
+      top: 0px;
+      bottom: 0px;
+    }
+    text-transform:none;
+    font-size:1em;
+  }
+  &.note {
+    border-color: $note;
+    background-color: lighten($note,65%);
+    > h4.callout-heading {
+      background-color: $note;
+    }
+  }
+  &.warn {
+    border-color: $warn;
+    background-color: lighten($warn, 65%);
+    > h4.callout-heading {
+      background-color: $warn;
+    }
+  }
+}
+
+.callout-content {
+  padding: 1em .5em 0em .5em;
+  font-size: .9em;
+  line-height: 1.5;
+  margin-top: 0px;
+  color: $base-font-color;
+}
+
+//allows for extra space between headings and callouts in body in instances where there is no body copy (<p>) separating the two
+h3 + .callout,
+h4 + .callout {
+  margin-top: 1em;
+}

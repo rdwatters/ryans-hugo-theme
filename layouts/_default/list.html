@@ -1,0 +1,17 @@
+{{define "main"}}
+<main id="main-list">
+    <ul class="list-articles">
+      {{range .Data.Pages }}
+			<li class="list-article">
+  			<section>
+          <header>
+    				<h2 class="title">
+    				<a href="{{.Permalink}}" id="{{.Title|urlize}}">{{.Title}}</a>
+    				</h2>
+          </header>
+  			</section>
+			</li>
+      {{end}}
+    </ul>
+</main>
+{{end}}

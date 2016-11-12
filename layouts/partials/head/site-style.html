@@ -1,0 +1,8 @@
+<!-- <script src="https://use.typekit.net/kkr1phl.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script> -->
+<!-- Critical Render Path (CRP) = needs UseCRP set to "true" in Hugo config file-->
+{{- if .Site.Params.usecrp -}}<style>{{- print (partial "head/style-embed.html" .) | safeCSS -}}</style>
+{{- else -}}<link rel="stylesheet" href="/assets/css/style.min.css">{{- end -}}
+{{- if .Site.Params.usefontawesome -}}<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">{{- end -}}
+<noscript><link rel="stylesheet" href="/assets/css/no-js.min.css"></noscript>
+{{ `<!--[if lte IE 9]><link rel="stylesheet" href="/assets/css/ie-9.css"><![endif]-->` | safeHTML }}

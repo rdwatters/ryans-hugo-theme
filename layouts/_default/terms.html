@@ -1,0 +1,15 @@
+{{define "main"}}
+	<main id="main-content">
+		{{$data := .Data}}
+		{{partial "components/hero.html" . }}
+			<article class="body-copy">
+			<ul class="terms-list">
+	    		{{ range $k,$v := .Data.Terms.Alphabetical }}
+	    		<li class="term">
+					<a href="/{{ $data.Plural }}/{{ $v.Name | urlize }}">{{ replace $v.Name "-" " "}}, {{ $v.Count }}</a>
+					</li>
+	    		{{ end }}
+			</ul>
+			</article>
+	</main>
+{{end}}

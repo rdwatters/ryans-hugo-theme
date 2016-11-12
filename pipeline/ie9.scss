@@ -1,0 +1,37 @@
+body {
+  background-color: white;
+}
+
+#site-header,
+#site-footer,
+#all-content-wrapper,
+#page-top,
+nav.site-navigation,
+.search-results-wrapper,
+.search-results-wrapper-desktop,
+#all-content-wrapper,
+#submit-content-form-wrapper,
+#submit-content-form-wrapper.form-open,
+#submit-content-iframe,
+iframe,
+header,
+footer,
+nav,
+article
+section {
+	width:0px;
+	height:0px;
+	visibility:hidden !important;
+  display: none!important;
+}
+
+#ie-only {
+  display: block;
+  width: 600px;
+  height: 1400px;
+  #ie9-cat {
+    display: block;
+    width: 600px;
+    height: auto;
+  }
+}

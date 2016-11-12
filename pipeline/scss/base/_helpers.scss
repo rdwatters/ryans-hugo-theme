@@ -1,0 +1,26 @@
+.center,.centered {
+  @include center;
+}
+
+.centered-text {
+	text-align:center;
+}
+
+.attention,.warn {
+	color:$accent;
+	font-weight:$base-font-bold-weight;
+}
+
+.brand {
+	color:$brand-primary;
+}
+
+.grayscale {
+	transition:filter $base-transition-time ease-in-out;
+	filter:grayscale(100%);
+	&.hover {
+		&:hover {
+			filter:grayscale(0%);
+		}
+	}
+}

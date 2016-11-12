@@ -1,0 +1,6 @@
+//This is the style for individual tweet embeds. The shortcode for these embeds is a built-in feature of Hugo: https://gohugo.io/extras/shortcodes#twitter
+[id*="twitter-widget-"],
+.twitter-tweet.twitter-tweet-rendered {
+  margin-left: auto;
+  margin-right: auto;
+}

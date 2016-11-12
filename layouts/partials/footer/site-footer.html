@@ -1,0 +1,9 @@
+<!-- Site Footer -->
+<footer id="site-footer">
+  <div class="site-footer-inner-wrapper">
+    <ul class="copyright">
+      <li><small>© {{ .Site.LastChange.Format "2006"}}</small></li>
+      {{ with .Site.Copyright }}<li>{{.}}</li>{{end}}
+    </ul>
+  </div>
+</footer>

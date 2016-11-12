@@ -1,0 +1,42 @@
+header.header-single-page {
+  margin-top: 4em;
+  @include center;
+  width: 90%;
+  max-width: $content-max-width;
+  position: relative;
+  h1.title.title-single-page {
+    margin-bottom: 0px;
+    font-weight: $title-font-weight;
+    margin-top: .25em;
+    border-bottom-width: 0px;
+  }
+}
+
+.subtitle-single-page {
+  color: lighten($base-font-color, 15%);
+  margin-top: .25em;
+  text-transform: uppercase;
+}
+
+.authors-single-page {
+  margin-top:.5em;
+  @include MQ(L) {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin-top:0em;
+  }
+}
+
+.author-single-page {
+  display: flex;
+  width: 100%;
+  margin-top: 0em;
+  height: 40px;
+  align-items: center;
+  a {
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+}

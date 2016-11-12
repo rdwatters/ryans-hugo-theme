@@ -1,0 +1,78 @@
+aside.page-aside {
+  @include center;
+  width: 90%;
+  position: relative;
+  font-size: .8em;
+  @include MQ(L) {
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding-top: 80px;
+    position: fixed;
+    right: 0px;
+    padding-right: 2em;
+    width: 32%;
+    float: right;
+    overflow-y: scroll;
+    z-index: 2;
+    margin-bottom: 2em;
+  }
+}
+
+.page-aside-inner-wrapper {
+  @include MQ(SM) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+  }
+  @include MQ(L) {
+    background-color: $page-aside-bg-color;
+    @include center;
+    width: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-width: 320px;
+    float: left;
+    margin-left: 1.5em;
+    padding: 1em;
+  }
+}
+
+section.page-aside-section {
+  @include center;
+  position: relative;
+  margin: 0px;
+  margin-bottom: 1.5em;
+  @include MQ(SM) {
+    width: 45%;
+  }
+  @include MQ(L) {
+    width: 100%;
+  }
+}
+
+.random-post {
+  display: block;
+  margin-top: .75em;
+  position: relative;
+  @include clearfix;
+  img {
+    max-width: 100%;
+    display: block;
+    @include center;
+    height: auto;
+  }
+  header {
+    width: 100%;
+    padding: {
+      right: .5em;
+      left: .5em;
+    }
+    ;
+    display: block;
+    max-width: 65%;
+    float: right;
+    margin-top: 0px;
+  }
+}

@@ -1,0 +1,13 @@
+{{ range first 1 ((where .Site.Pages "Section" "blog").ByPublishDate.Reverse) }}
+<section id="hero" style="background-image:url(/assets/images/{{.Params.image}});" class="homepage-hero">
+		<header class="hero-header">
+			{{if .Site.Params.featuredbutton}}<div class="featured-post">{{.Site.Params.featuredbuttontext}}</div>{{end}}
+			<h1 class="title darkbg">{{.Title | markdownify}}</h1>
+			<!-- <div class="hero-author">{{range .Params.authors}} <img src="/assets/images/thumbs/{{.|urlize}}.jpg" alt="" class="inline-author-image"><span>{{.}}</span>{{end}}</div> -->
+			{{ with .Params.subtitle}}
+			<p class="hero-description">{{. | markdownify}}</p>
+			{{end}}
+			<a href="{{.Permalink}}" role="button" class="button darkbg">Read More...</a>
+		</header>
+</section>
+{{end}}

@@ -1,0 +1,17 @@
+<div class="audio-player">
+  {{$songid := (.Get "title") | urlize}}
+  {{$title := .Get "title"}}
+  <div class="audio-info">
+    <div class="audio-thumbnail">
+      <img src="/assets/images/thumbs/{{.Get "thumbnail"| default "default-thumb.svg"}}" alt="Thumbnail for the song {{$title}}">
+    </div>
+    <div class="audio-meta">
+      <div class="audio-title"><strong>{{.Get "title"}}</strong></div>
+      <div class="audio-artist">{{.Get "artist"}}{{with .Get "album"}} &ndash; {{.}}{{end}}</div>
+      {{with .Get "itunes"}}
+      <a class="itunes-link" href="{{.}}"><i class="icon-apple"></i></a>
+      {{end}}
+    </div>
+  </div>
+  <audio class="audio-file" id="{{$songid}}" src="/assets/audio/{{ .Get "file" }}" preload="none" controls></audio>
+</div>

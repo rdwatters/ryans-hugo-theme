@@ -1,0 +1,46 @@
+.chart-wrapper {
+  width: 100%;
+  position:relative;
+  padding-bottom:1.5em;
+}
+
+.yaxis-label {
+	transform:rotate(270deg);
+	position:absolute;
+	left:-3.25em;
+	font-size:.8em;
+	top:50%;
+	+ canvas.capchart {
+		margin-left:9%;
+		max-width:92%;
+	}
+	@include MQ(L){
+		left:-1.75em;
+	}
+}
+
+.output > .chart-wrapper .yaxis-label {
+	left:-12%;
+	@include MQ(L){
+		left:-4%;
+	}
+}
+
+.xaxis-label {
+	position:absolute;
+	bottom:0%;
+	width:100%;
+	text-align:center;
+	font-size:.8em;
+}
+
+canvas.capchart {
+	clear:both;
+	display:block;
+}
+
+h3.chart-title {
+  text-align: center;
+  font-size: 1.4em;
+  color: lighten($base-font-color, 15%);
+}

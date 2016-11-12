@@ -1,0 +1,37 @@
+<article class="body-copy">
+    {{.Content}}
+    <div id="listjs-block">
+        {{ $url := .Params.listpageurl }}
+        {{ $sep := "," }}
+        {{ $thistitle := .Title}}
+        <noscript><div class="no-listjs-without-js">Please enbable JavaScript in your browser for full sorting functionality.</div></noscript>
+        <div class="list-search-input">
+            <a href="#" class="clear-input"><i class="icon-close"></i></a>
+            <input type="text" class="search listjs" placeholder="Search {{.Title}}..." /><i class="icon-search" aria-hidden="true"></i>
+        </div>
+        <div class="table-wrapper">
+        <table class="sortable-list-table" id="{{.Title |urlize }}">
+            {{- range $i, $r := getCSV $sep $url -}}
+                {{if lt $i "1"}}
+                <thead>
+                    <tr>
+                    {{- range $ind, $name := $r -}}
+                        <th class="sort sort-header {{$name | urlize}}" data-sort="col{{add $ind 1}}">{{- $name -}}
+                        <i class="icon-sort"></i></th>
+                    {{- end -}}
+                    </tr>
+                </thead>
+                <tbody class="list">
+                {{ else }}
+                <tr>
+                    {{range $ind, $name := $r }}
+                    <td class="col{{add $ind 1}}">{{ $name }}</td>
+                    {{end}}
+                </tr>
+                {{end}}
+                {{- end -}}
+                </tbody>
+        </table>
+        </div>
+    </div>
+</article>

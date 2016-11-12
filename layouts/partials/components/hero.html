@@ -1,0 +1,58 @@
+{{$sectiont := replace (.Title | lower) " " ""}}
+{{$sectiontitle := replace $sectiont "-" "" }}
+{{if .Params.image}}
+<section id="hero" style="background-image:url(/assets/images/{{.Params.image}});" {{if .IsPage}} class="blog-post" {{end}}>
+  <header class="hero-header">
+    <div class="hero-meta blog-post">
+      <time datetime="{{.PublishDate}}">{{.PublishDate.Format "January 2, 2006"}}</time> &bull; <span class="reading-time">{{.ReadingTime}}-min read</span> &bull; {{range .Params.categories}}<span class="hero-meta-categories"><a href="/categories/{{.|urlize}}">{{.}}</a></span>{{end}}
+    </div>
+    <h1 class="title title-hero">{{partial "components/titles.html" . }}</h1>
+    <div class="hero-author">{{- range .Params.authors -}} <img src="/assets/images/{{.| urlize}}.jpg" alt="Image of the author of this article, {{.}}" class="inline-author-image"><a href="/team/#{{. | urlize}}" title="Learn more about {{.}}"> {{.}}</a>{{- end -}}</div>
+    {{- with .Params.subtitle -}}
+    <p class="hero-description">{{. | markdownify}}</p>
+    {{- end -}}
+    {{partial "components/share-button.html" . }}
+    <ul class="hero-tags">
+      {{- range .Params.tags -}}
+      <li><a href="/tags/{{.|urlize}}" class="tag">{{.}}</a></li>
+      {{- end -}}
+    </ul>
+  </header>
+  <div class="scroll-down">
+    <a href="#" id="scroll-down">
+      <i class="icon-down"></i>
+    </a>
+  </div>
+</section>
+{{else if or (.IsNode) (.Params.innav)}}
+<!-- Heroes for section pages(ie, list pages) take the background color assigned to the section -->
+<section id="hero" class="site-section" {{with .Site.Params.defaultherobgcolor}}style="background-color:{{.}}"{{end}}>
+  <header class="hero-header">
+    <h1 class="title title-hero">{{partial "components/titles.html" . }}</h1>
+    {{ range $ind, $item := .Site.Data.sectiondescriptions }}
+      {{ if eq $ind $sectiontitle}}
+      <p class="hero-description">{{$item | markdownify}}</p>
+      {{ end }}
+    {{ end }}
+  </header>
+</section>
+{{else}}
+    <header class="header-single-page">
+      <div class="hero-meta">
+        <time datetime="{{.PublishDate}}">{{.PublishDate.Format "January 2, 2006"}}</time> &bull; <span class="reading-time">{{.ReadingTime}}-min read</span> &bull; {{range .Params.categories}}<span class="hero-meta-categories hero-meta-categories-single-page"><a href="/categories/{{.|urlize}}">{{.}}</a></span>{{end}}
+      </div>
+      <h1 class="title title-single-page">{{.Title}}</h1>
+      {{with .Params.subtitle}}
+      <div class="subtitle-single-page">{{.}}</div>
+      {{end}}
+      <div class="authors-single-page">
+      {{- range .Params.authors -}}
+      <div class="author-single-page"><a href="/team/#{{. | urlize}}" title="Learn more about {{.}}"><img src="/assets/images/{{.| urlize}}.jpg" alt="Image of the author of this article, {{.}}" class="inline-author-image"><span> {{.}}</a></span></div>{{- end -}}
+      </div>
+      <ul class="hero-tags hero-tags-single-page ">
+      {{- range .Params.tags -}}
+      <li><a href="/tags/{{.|urlize}}" class="tag">{{.}}</a></li>
+      {{- end -}}
+      </ul>
+    </header>
+{{end}}

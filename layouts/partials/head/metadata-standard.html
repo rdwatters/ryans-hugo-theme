@@ -1,0 +1,7 @@
+
+  <title>{{if not .IsHome}}{{replace .Title "-" " "}} | {{end}}{{.Site.Title}}</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.sitedescription }}{{ else if .IsPage }}{{ .Description }}{{ else if .IsNode }}{{ index .Site.Data.sectiondescriptions .Title }}{{ end }}"/>
+
+

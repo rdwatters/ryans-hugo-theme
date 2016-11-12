@@ -1,0 +1,32 @@
+<div class="documentation-wrapper">
+<aside class="documentation smooth-links" id="documentation-aside">
+
+	<nav id="documentation-toc">
+	<h4 class="title darkbg"><a href="#page-top">{{partial "components/titles.html" . }}</a></h4>
+	<ul>
+		{{range $ind, $page := .Data.Pages }}
+		<li><a href="#{{$page.Title|urlize}}" class="toc-link">{{ if eq .Section "theme-docs"}}<i class="icon-{{.Title | urlize}}"></i> {{end}}{{with $page.Params.showchapter}}{{$page.Weight}}. {{end}}{{$page.Title | markdownify}}</a></li>
+		{{end}}
+	</ul>
+	</nav>
+</aside>
+<a href="#" id="toggle-documentation-toc"><span></span></a>
+<main id="main-documentation">
+
+	<div class="body-copy documentation-body">
+
+		{{range $ind, $page := .Data.Pages}}
+		{{$title := ($page.Title | markdownify)}}
+		{{$urltitle := ($page.Title | urlize) }}
+		<article id="{{$urltitle}}" class="documentation-article">
+			<header>
+				<h1 class="title documentation-section-title"><a href="#{{$urltitle}}" class="documentation-header-link"><i class="icon-link"></i></a>{{ if eq .Section "theme-docs"}}<i class="icon-{{$urltitle}}"></i> {{end}}{{with $page.Params.showchapter}}{{$page.Weight}}. {{end}}{{$title}}{{partial "components/edit-page.html" . }}</h1>
+			</header>
+			{{.Content}}
+
+		</article>
+		{{end}}
+	</div>
+</main>
+
+</div>

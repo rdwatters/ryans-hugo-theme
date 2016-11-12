@@ -1,0 +1,19 @@
+{{- if .IsNamedParams -}}
+<div class="code-copy" id="{{.Get "title"}}">
+	{{- with .Get "filename" -}}<div class="code-copy-header"><div class="action-buttons"></div><span title="{{.}}"class="filename">{{- . -}}</span></div>{{- end -}}
+	<button class="copy-button" title="Copy to clipboard" data-clipboard-snippet>
+			<div class="copy-text"><i class="icon-clipboard"></i> COPY</div>
+	</button>
+	{{- .Inner -}}
+</div>
+{{- else -}}
+<div class="code-copy" id="{{.Get 0|urlize}}">
+	<div class="code-copy-header"><div class="action-buttons"></div><span class="filename" title="{{.Get 1}}">{{.Get 1}}</span></div>
+	<button class="copy-button" title="Copy to clipboard" data-clipboard-snippet>
+			<div class="copy-text"><i class="icon-clipboard"></i> COPY</div>
+	</button>
+	{{- .Inner -}}
+</div>
+{{- end -}}
+
+

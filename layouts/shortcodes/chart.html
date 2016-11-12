@@ -1,0 +1,16 @@
+<div class="chart-wrapper">
+	{{$type := replace (.Get "type" | urlize) "-" "" }}
+	{{$id := replace (.Get "title" | urlize) "." "" }}
+	<h3 class="chart-title">{{.Get "title"}}</h3>
+	{{with .Get "y"}}
+	<div class="yaxis-label">{{.|markdownify}}</div>
+	{{end}}
+	{{if .Get "sets"}}
+	<canvas id="{{$id}}" class="capchart" data-charttype="{{$type}}plural"{{with .Get "y"}} data-y="{{.}}"{{end}}{{with .Get "x"}} data-x="{{.}}"{{end}} data-labels="{{.Get "labels"}}" data-sets={{.Get "sets"}} data-label1="{{.Get "label1"}}"  data-values1="{{.Get "values1"}}" data-label2="{{.Get "label2"}}"  data-values2="{{.Get "values2"}}"{{with .Get "label3"}} data-label3="{{.}}"{{end}}{{with .Get "values3"}} data-values3="{{.}}"{{end}}{{with .Get "label4"}} data-label4="{{.}}"{{end}}{{with .Get "values4"}} data-values4="{{.}}"{{end}}{{with .Get "label5"}} data-label5="{{.}}"{{end}}{{with .Get "values5"}} data-values5="{{.}}"{{end}}></canvas>
+	{{else}}
+	<canvas id="{{$id}}" class="capchart" data-charttype="{{$type}}" {{with .Get "y"}} data-y="{{.}}"{{end}}{{with .Get "x"}} data-x="{{.}}"{{end}} data-labels="{{.Get "labels"}}" data-label="{{.Get "label"}}" data-values="{{.Get "values"}}" ></canvas>
+	{{end}}
+	{{with .Get "x"}}
+	<div class="xaxis-label">{{.|markdownify}}</div>
+	{{end}}
+</div>

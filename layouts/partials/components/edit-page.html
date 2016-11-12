@@ -1,0 +1,11 @@
+{{- $File := .File -}}
+{{- $contentdir := .Site.Params.ghcontentdir -}}
+{{- with $File.Path -}}
+<div class="edit-page" aria-hidden="true">
+	<div class="edit-on-github-wrapper-inner{{if $.Params.isdoc }} docs{{else}} blog-post{{end}}">
+		<a href="{{$contentdir}}/{{ $File.Dir }}{{ $File.LogicalName }}" target="_blank">
+		<i class='icon-edit'></i> Edit <em class="page-edit-title">{{$.Title}}</em> on GitHub <i class="icon-github"></i>
+		</a>
+	</div>
+</div>
+{{- end -}}

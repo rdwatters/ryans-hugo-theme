@@ -1,0 +1,5 @@
+//pulls from abstracts/mixins (fonts)
+// @include fonts('proximanova', $weights:100 300 400 600);
+@include fonts('roboto', $weights:300 700);
+@include fonts('robotoslab', $weights:700, $italic: false);
+@include fonts('courierprime', $weights:400 700);

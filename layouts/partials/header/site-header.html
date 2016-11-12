@@ -1,0 +1,53 @@
+<header id="site-header">
+  <div class="burger-container">
+    <div id="burger">
+      <div class="bar topBar"></div>
+      <div class="bar btmBar"></div>
+    </div>
+  </div>
+  <a href="/" class="mobile-home-link"></a>
+  <a href="" class="close-search">
+    <i class="icon-up"></i>
+  </a>
+</header>
+<nav class="site-navigation">
+  <div class="site-menu-inner-wrapper">
+    <span class="home-link"><a class="site-menu-item-link home" href="/"></a></span>
+    <ul class="site-menu">
+
+      {{$thisPerm := .Permalink}}
+      {{$thisTitleUrl := .Title | urlize}}
+      {{- range $section,$items := .Site.Sections -}}
+        {{- if and (ne $section "singles") (ne $section "theme-docs") -}}
+        <li class="site-menu-item"><a class="site-menu-item-link{{if in $thisPerm $section}} active{{end}}" href="{{$section | relURL}}">{{$section | humanize | title}}</a></li>
+        {{- else -}}
+          {{- range where $items.Pages "Params.innav" "==" true -}}
+          <li class="site-menu-item"><a class="site-menu-item-link{{if in .Permalink $thisTitleUrl}} active{{end}}" href="{{.Permalink}}">{{.Title}}</a></li>
+          {{- end -}}
+        {{- end -}}
+      {{end}}
+      <li class="site-menu-item search-icon">
+        <i class="icon-search" id="search-icon"></i>
+      </li>
+    </ul>
+    <div class="search-input-wrapper">
+      <i class="icon-search mobile-only" id="search-icon"></i>
+      <input type="text" id="search-input" placeholder="Search {{.Site.Title}}...">
+      <i class="icon-close" id="close-search-desktop"></i>
+    </div>
+  </div>
+  <div class="search-results-wrapper">
+    <div class="search-results-wrapper-inner">
+      <ul id="search-results">
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="search-results-wrapper-desktop">
+  <i id="scroll-down-icon" class="icon-scroll in-search-results"></i>
+  <div class="search-results-wrapper-desktop-inner">
+    <div id="search-results-tally"></div>
+    <ul id="search-results-desktop">
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="video-wrapper" data-streaming="{{.Get "channel" }}" data-videoid="{{.Get "id"}}" >
+	<i class="icon-video-play-button shortcode"></i>
+	{{if eq (.Get "channel") "vimeo"}}
+	<div style="background-image:url(//vimeo.com/api/v2/video/{{.Get "id"}}.json?callback=showThumb)" alt="Vimeo thumbnail" class="video-thumbnail" data-is-vimeo="true" data-videoid="{{.Get "id"}}"></div>
+	{{else}}
+	{{if (.Get "thumbnail")}}
+	<div style="background-image:url(/assets/images/videothumbnails/{{.Get "thumbnail"}})" alt="YouTube Thumbnail" class="video-thumbnail" data-is-vimeo="false"></div>
+	{{else}}
+	<div style="background-image:url(//img.youtube.com/vi/{{.Get "id"}}/0.jpg)" alt="YouTube Thumbnail" class="video-thumbnail" data-is-vimeo="false"></div>
+	{{end}}
+	{{end}}
+</div>
+{{ if len .Inner }}
+<div class="video-description">{{ .Inner }}</div>
+{{ end }}

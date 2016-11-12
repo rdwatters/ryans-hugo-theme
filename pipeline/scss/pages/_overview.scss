@@ -1,0 +1,12 @@
+.body-copy.overview {
+  h2 {
+    font-size: 1.6em;
+  }
+  input[type=checkbox][disabled] {
+    outline: 1px solid lighten($base-font-color, 25%);
+    border-radius: .5em;
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align:middle;
+  }
+}

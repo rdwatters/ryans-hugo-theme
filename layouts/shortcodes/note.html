@@ -1,0 +1,6 @@
+<aside class="callout note">
+	<h4 class="callout-heading"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{with .Get "title" }}{{.|markdownify}}{{else}}Note{{end}}</h4>
+	<div class="callout-content note">
+	{{- .Inner -}}
+	</div>
+</aside>

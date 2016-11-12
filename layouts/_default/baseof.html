@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+{{- partial "head/noindex.html" . -}}
+{{- partial "head/metadata-standard.html" . -}}
+{{- partial "head/metadata-google-publisher.html" . -}}
+{{- partial "head/metadata-schemaorg.html" . -}}
+{{- partial "head/metadata-opengraph.html" . -}}
+{{- partial "head/metadata-twitter.html" . -}}
+{{- partial "head/site-style.html" . -}}
+{{- partial "head/metadata-favicons.html" . -}}
+<!-- Allows for additional stylesheets-->
+{{- block "addstyle" . -}}{{- end -}}
+<!-- Allows for additional metadata-->
+{{- block "addmeta" . -}}{{- end -}}
+{{- partial "head/metadata-prefetch.html" . -}}
+</head>
+<body {{block "body-class" . }}{{end}}>
+{{- partial "head/google-tag-manager.html" . -}}
+<div id="site-wrapper"><!-- BEGIN SITE WRAPPER -->
+{{- partial "header/ie9-conditional-content.html" . -}}
+{{- partial "header/page-top-link.html" . -}}
+{{- partial "header/site-notification.html" . -}}
+{{- partial "header/site-header.html" . -}}
+{{- if and (and (ne .Title "Docs") (ne .Title "Editor")) (.Site.Params.usegoogleform) -}}
+{{- partial "components/google-form.html" . -}}
+{{- end -}}
+<div id="all-content-wrapper"><!-- BEGIN ALL CONTENT WRAPPER -->
+{{ `<!--[if lte IE 9]><div id ="all-content-wrapper" style="display:none!important;"><![endif]-->` | safeHTML }}
+
+{{- block "main" . -}}
+
+{{- end -}}
+
+</div> <!-- END ALL CONTENT WRAPPER -->
+{{- partial "footer/site-footer.html" . -}}
+</div><!-- END SITE WRAPPER -->
+{{- partial "footer/site-scripts.html" . -}}
+<!-- Allows for additional scripts at the template level-->
+{{- block "addscripts" . -}}
+{{- end -}}
+<!-- Needed for data visualizations at the page level -->
+{{- if .Params.includedv -}}
+{{- end -}}
+<!-- Allows for additional scripts at the page/content level -->
+{{- if .Params.scripts -}}
+{{- range .Params.scripts -}}
+<script src="/assets/js/page-specific-scripts/{{.}}"></script>
+{{- end -}}
+{{- end -}}
+</body>
+</html>

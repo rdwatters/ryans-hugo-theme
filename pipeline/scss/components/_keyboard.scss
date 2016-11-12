@@ -1,0 +1,11 @@
+//gives styles to inline <kbd> references to make them look more like actual keys
+
+kbd {
+	display:inline-block;
+	font-size:.75em;
+	border:1px solid $base-font-color;
+	border-radius:.25em;
+	min-width:1.5em;
+	padding:.125em .25em;
+	text-align:center;
+}

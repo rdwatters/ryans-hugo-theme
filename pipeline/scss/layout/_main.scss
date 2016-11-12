@@ -1,0 +1,58 @@
+main, #main,
+#main-content,#main-list {
+  z-index: 1;
+  min-height: calc(100vh - 100px);
+}
+
+// #main-homepage {
+//   background-color: #000000;
+// }
+
+#main-content {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+#main-documentation {
+  position:relative;
+  transition: all .3s ease-in-out;
+  display: inline-block;
+  margin-top:0px;
+  max-width:100%;
+  &.documentation-toc-open {
+    transition: all .3s ease-in-out;
+    transform:translateX(250px);
+    opacity:.4;
+    @include MQ(L){
+      transform:translateX(0px);
+    }
+  }
+  @include MQ(L) {
+    margin-left: $documentation-aside-width;
+    width:calc(100% - #{$documentation-aside-width});
+    background-color: $documentation-aside-button-bg-color;
+    .body-copy {
+      margin-left:0px;
+      margin-top:0px;
+      margin-bottom:0px;
+      padding-left:2em;
+      padding-right:2em;
+    }
+  }
+}
+
+.body-copy {
+  width: 90%;
+  position: relative;
+  margin-bottom: 1.5em;
+  margin-top: 1em;
+  max-width: $content-max-width;
+  background-color: $body-bg-color;
+  @include center;
+  &.documentation-body {
+    max-width: $documentation-content-max-width;
+    padding-bottom:1.5em;
+  }
+}

@@ -1,0 +1,226 @@
+/************IMAGE STYLES********************/
+
+//1. Base style
+//2. Template/list page
+//3. Body copy
+
+//1. BASE STYLES
+img {
+  width: 100%;
+  height: auto;
+  &.aside-image {
+    transition: filter .3s ease-in-out;
+    width: 35%;
+    display: block;
+    float: left;
+    &:hover {
+      transition: filter .3s ease-in-out;
+      filter: grayscale(0%);
+    }
+  }
+}
+
+.body-copy li img {
+  margin:.75em 0px;
+}
+
+//2. TEMPLATE/LIST PAGE
+img.inline-author-image {
+  display: block;
+  height: 2em;
+  width: 2em;
+  margin-right: .5em;
+  border-radius: 50%;
+}
+
+img.digital-team {
+  border-radius: 50%;
+  &.single {
+    max-width: 300px;
+  }
+}
+
+img.circle {
+  border-radius: 50%;
+  &.medium {
+    max-width: 250px;
+    max-height: 250px;
+  }
+}
+
+img.icon-header-image {
+  @include center;
+  width: 85%;
+  padding: 5% 0em;
+  margin-bottom: .75em;
+}
+
+//3. BODY COPY
+.body-copy a > img {
+  cursor: pointer; //fallback for IE (no "zoom-in" support)
+  cursor: zoom-in;
+  &:hover {
+    cursor: pointer;
+    cursor: zoom-in;
+  }
+}
+
+//for material-style box-shadows for images in body-copy
+.shadow {
+  @include card(3);
+}
+
+//Figure Base Style
+figure {
+  padding: 0px;
+  margin: 0px;
+  @include MQ(XL) {
+    &.large {
+      position: relative;
+      width: 110%;
+      margin-left: -5%;
+    }
+  }
+}
+
+figcaption {
+  width: 100%;
+  text-align: center;
+  font-size: .8em;
+  margin-top: 0;
+  font-style: italic;
+  color: lighten($base-font-color, 15%);
+}
+
+//Red Print Button on PDF Blog Post
+figure#bigbutton-wrapper {
+  display: block;
+  width: 200px;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.2em;
+  figcaption {
+    margin-top: 2em;
+  }
+}
+
+figure.modal {
+  cursor: url(/assets/images/icons/zoom-in.svg), auto;
+  &:hover {
+    cursor: url(/assets/images/icons/zoom-in.svg), auto;
+  }
+  a.image-link {
+    cursor: url(/assets/images/icons/zoom-in.svg), auto;
+    img {}
+  }
+}
+
+#bigbutton-top {
+  background-color: $cap-red;
+  width: 200px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  text-transform: uppercase;
+  z-index: 5;
+  top: 0;
+}
+
+#bigbutton-back,
+#bigbutton-top,
+#bigbutton-top p {
+  transition: all .25s;
+}
+
+#bigbutton-top p {
+  color: $white;
+  font-family: $base-font-family;
+  font-weight: bold;
+  font-size: 1.8em;
+  text-align: center;
+  transform: rotateX(45deg);
+  margin-top: .3em;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  user-select: none;
+  line-height: 1.2;
+  i {
+    font-size: 1.2em;
+  }
+}
+
+#bigbutton-back {
+  background: $body-bg-color;
+  position: absolute;
+  width: 200px;
+  height: 55px;
+  left: 0px;
+  top: 0px;
+  z-index: 3;
+  float: left;
+}
+
+#bigbutton-side {
+  background-color: darken($cap-red, 15%);
+  width: 200px;
+  height: 125px;
+  top: 50px;
+  position: absolute;
+  border-radius: 0 0 50% 50%;
+}
+
+#bigbutton {
+  width: 200px;
+  height: 150px;
+  position: relative;
+  perspective: 1200;
+  cursor: pointer;
+  //remove anchor styling for body copy
+  &:after,
+  &:before {
+    display: none;
+  }
+}
+
+#bigbutton:active > #bigbutton-top,
+#bigbutton:active > #bigbutton-back {
+  top: 25px;
+}
+
+#bigbutton:active > #bigbutton-top p {
+  text-shadow: 0 0 15px $white;
+}
+
+//Modal figures for body copy
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-wrapper {
+  display: none;
+  @include MQ(L) {
+    &.modal-open {
+      display: block;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 50px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      background-color: $white;
+      overflow: auto;
+      z-index: 999;
+      .modal-wrapper-inner {
+        @include centerer;
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        max-width: 1000px;
+        min-height: 100%;
+        overflow-y: scroll;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve" id="teamwork-icon" class="background-icon">
+  <g>
+    <path d="M15,17H9c-1.1,0-2,0.9-2,2v3h10v-3C17,17.9,16.1,17,15,17z" />
+    <path d="M7,5c0,1.1,0.9,2,2,2h6c1.1,0,2-0.9,2-2V2H7V5z" />
+    <path d="M5,7H2v10h3c1.1,0,2-0.9,2-2V9C7,7.9,6.1,7,5,7z" />
+    <path d="M19,7c-1.1,0-2,0.9-2,2v6c0,1.1,0.9,2,2,2h3V7H19z" />
+    <circle class="st0" cx="12" cy="12" r="3" />
+  </g>
+</svg>

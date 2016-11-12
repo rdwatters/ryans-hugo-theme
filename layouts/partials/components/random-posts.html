@@ -1,0 +1,17 @@
+<section class="random-posts">
+<!-- Note that this partial/component is not currently used in the Ryan's Company theme but has been added for convenience -->
+  <header>
+    <h3 class="title"><a href="/blog">Blog</a></h3>
+    {{$thisTitle := .Title }}
+    {{range (where (where .Site.Pages "Section" "blog") "Title" "!=" $thisTitle) | shuffle | first 3}}
+    <a href="{{.Permalink}}">
+      <article class="random-post">
+          <img class="aside-image" src="/assets/images/{{.Params.image}}" alt="">
+          <header>
+            <h5 class="aside-post-title">{{.Title}}</h5>
+          </header>
+      </article>
+    </a>
+    {{end}}
+  </header>
+</section>

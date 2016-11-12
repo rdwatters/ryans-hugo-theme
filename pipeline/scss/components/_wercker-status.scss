@@ -1,0 +1,27 @@
+.wercker-status-wrapper {
+    display: none;
+    @include MQ(L) {
+        display: block;
+        width: 100px;
+        position: fixed;
+        top: 65px;
+        right: 10%;
+        z-index:999;
+    }
+    // .build-status {
+    // 	color:$hero-font-color;
+    // 	width:100%;
+    // 	margin-top:.15em;
+    // 	font-size:.7em;
+    // 	line-height:1;
+    //     text-align:center;
+    // }
+}
+
+.markdown-editor {
+    .wercker-status-wrapper {
+        .build-status {
+        color:$hero-font-color;
+        }
+    }
+}

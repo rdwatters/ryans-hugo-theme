@@ -1,0 +1,139 @@
+.notification {
+  transition: margin-top .2s ease-in-out;
+  position: fixed;
+  display: block;
+  top: 3.5em;
+  left: 5%;
+  width: 90%;
+  max-width: 440px;
+  opacity: 0;
+  z-index: 10;
+  color: white;
+  padding: 1em 1em 2em 1em;
+  background-color: $notification-background-color;
+  font-size: .8em;
+  &.blue {
+    background-color: $blue;
+  }
+  &.red {
+    background-color: $accent;
+  }
+  @include MQ(M) {
+    right: 1em;
+    top: 3.5em;
+    left: auto;
+  }
+}
+
+.notification-heading {
+  color: $white;
+  font-size: 1.2em;
+  border-bottom: 1px white solid;
+  padding-right: 1.5em;
+  font-weight: 600;
+  margin-bottom: .25em;
+}
+
+.notification-content {
+  line-height: 1.1;
+  margin-bottom: 0px;
+  margin-bottom: .5em;
+  font-size: 1em;
+  p {
+    line-height:1.1;
+    color:$white;
+  }
+}
+
+.notification {
+  a {
+    color: $white;
+    font-size: .75em;
+    border-color: $white;
+    margin-top: .5em;
+    background-color: transparent;
+    display: block;
+    cursor:pointer;
+    text-decoration:none;
+    border-bottom:2px solid $white;
+    box-shadow:none!important;
+    &::after,
+    &::before {
+      border-width: 0px;
+      background-color: transparent;
+      display:none;
+      text-decoration:none;
+    }
+    &:hover {
+      color: white;
+      border-color: white;
+      box-shadow: none;
+      cursor:pointer;
+      background-color:transparent;
+      border-color:$white;
+    }
+    &.button {
+      max-width: 130px;
+    }
+    &.findoutmore {
+      width: auto;
+      min-width: 200px;
+      font-size: .6em;
+    }
+    &.close-notification {
+      position: absolute;
+      top: -0.5em;
+      right: .25em;
+      font-size: 1.5em;
+      box-shadow: none;
+      transform: rotateX(0deg);
+      border:none;
+    }
+    &.dont-show-again {
+      position: absolute;
+      padding: .25em .5em;
+      bottom: .5em;
+      right: 1em;
+      font-size:.9em;
+      text-decoration:none;
+      &:hover {
+        transition: border-color .3s ease-in-out, background-color .3s ease-in-out;
+        text-decoration: none;
+        background-color: $white;
+        border-color: $white;
+        color: $accent;
+        font-weight: 600;
+      }
+      &:after {
+        border-width: 0px;
+      }
+    }
+  }
+}
+
+.notification:nth-child(1) {
+  margin-top: 0px;
+}
+
+.notification:nth-child(2) {
+  transition: margin-top .2s ease-in-out;
+  margin-top: 180px;
+  @include MQ(M) {
+    margin-top: 200px;
+  }
+}
+
+.notification:nth-child(3) {
+  transition: margin-top .2s ease-in-out;
+  margin-top: 360px;
+  @include MQ(M) {
+    margin-top: 400px;
+  }
+}
+//Specific styling for notification sample in docs/#notifications
+#this-is-a-page-level-notification {
+  display:none;
+  &.show-example-notification {
+    display:block;
+  }
+}

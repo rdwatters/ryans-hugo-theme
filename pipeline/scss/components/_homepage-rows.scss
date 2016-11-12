@@ -1,0 +1,191 @@
+.homepage-row {
+  display: flex;
+  // flex-direction:column;
+  justify-content: space-between;
+  min-width: 100%;
+  min-width: 100vw;
+  min-height: auto;
+  h1.row-title {
+    font-weight: $title-font-weight;
+  }
+  &:nth-child(odd) {
+    background-color: lighten($cap-gray-light, 7%);
+  }
+  &:nth-child(even) {
+    background-color: #56B3C9;
+    margin: 0px;
+    h1.row-title {
+      a {
+        color: $white;
+        font-weight: $title-font-weight;
+      }
+    }
+  }
+  h1.row-title {
+    &:before {
+      content: '';
+      display: block;
+      width: 150px;
+      border-bottom: 4px solid $brand-primary;
+      margin-bottom: .25em;
+      @include MQ(M) {
+        width: 175px;
+      }
+    }
+  }
+}
+
+.homepage-tiles {
+  width: 100%;
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  padding: {
+    top: 1.25em;
+    bottom: .75em;
+  }
+  section.tile {
+    background-color: $homepage-title-bg-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    padding-top: 0px;
+    min-height: 220px;
+    max-height: 220px;
+    margin-bottom: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    @include card(1, 5);
+    > a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 100%;
+      min-height: 100%;
+      color: $homepage-title-text-color;
+    }
+    header {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 220px;
+      max-height: 220px;
+      margin: 0px;
+      padding: 0px;
+      padding-left: 1em;
+      padding-right: 1em;
+      i {
+        font-size: 5em;
+        margin-top: -.25em;
+        @include center;
+        &.icon-content-owners {
+          &:before {
+            margin-left: -.3em;
+          }
+        }
+        &.icon-digital-team {
+          &:before {
+            margin-left: -.5em;
+          }
+        }
+        &.icon-content-requests {
+          &:before {
+            margin-left: 0em;
+            margin-top: -.5em;
+          }
+        }
+        &.icon-site-updates {
+          &:before {
+            margin-left: 0px;
+          }
+        }
+        &.icon-content-owners {
+          &:before {
+            margin-left: -.2em;
+          }
+        }
+      }
+      h2 {
+        text-align: center;
+        margin-top: -.15em;
+        color: $homepage-title-text-color;
+        font-size: 1.6em;
+      }
+    }
+    @include MQ(M) {
+      width: 32%;
+    }
+    @include MQ(XL) {}
+  }
+}
+
+.row-inner {
+  @include center;
+  width: 90%;
+  max-width: $M;
+  @include MQ(M) {
+    max-width: $L;
+  }
+  .homepage-team-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5em;
+    margin-bottom: 2.5em;
+    .homepage-team-list-member {
+      display: inline-block;
+      padding: 0px;
+      margin: 0px;
+      min-width: 48%;
+      width: 48%;
+      max-width: 48%;
+      @include MQ(M) {
+        min-width:22%;
+        width: 22%;
+        max-width: 22%;
+      }
+      > a {
+        color: $white;
+        display:inline-block;
+        width:100%;
+        height:100%;
+        > img {
+          transition: all .2s ease;
+          padding: 0px;
+          margin: 0px;
+          filter: grayscale(100%);
+          border-radius: 50%;
+          width: 85%;
+          margin-left: 7.5%;
+          border: 2px solid $white;
+          @include MQ(L) {
+            width: 95%;
+            margin-left: 2.5%;
+          }
+          &:hover {
+            transition: all .2s ease;
+            transform: scale(1.05);
+            border-width: 4px;
+            filter: grayscale(0%);
+          }
+        }
+        > div {
+          display: block;
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
