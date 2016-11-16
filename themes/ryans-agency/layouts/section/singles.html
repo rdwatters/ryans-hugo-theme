@@ -1,0 +1,17 @@
+<!-- THIS IS NOT ACTUALLY A WEBPAGE. THIS TEMPLATE IS USED TO CREATE THE SITE INDEX AND IS REMOVED ON BUILD -->
+[{{- range $index, $page := .Site.Pages.ByPublishDate -}}
+		{{if not $page.Params.removefromsearch }}
+		{{- if and $index (gt $index "0") -}},{{- end -}}
+		{{- if $page.Params.isdoc -}}
+		{"url":"/{{- $page.Section -}}/#{{- $page.Title | urlize -}}",
+		{{- else -}}
+		{"url":"{{- $page.Permalink -}}",
+		{{- end -}}
+		"title":"{{- $page.Title -}}",
+		{{- if $page.Params.subtitle -}}"subtitle": "{{- $page.Params.subtitle -}}",{{- else -}}"subtitle":"",{{- end -}}
+		{{- if eq .Section "singles" -}}"section": "{{.Title}}",{{- else -}}
+		"section":"{{- replace (.Section | title) "-" " " -}}",{{- end -}}
+		"tags":[{{- range $tindex, $tag := $page.Params.tags -}}{{- if $tindex -}}, {{- end -}}"{{- $tag -}}"{{- end -}}],"description":{{- if .Description -}}"{{- .Description | markdownify | plainify -}}",{{- else -}}"{{- $page.Params.bio_short -}}",{{- end -}}
+		"content":{{- $page.Plain | jsonify -}}}
+		{{end}}
+{{- end -}}]

@@ -6,6 +6,7 @@ draft: false
 date: 2016-10-01
 publishdate: 2016-10-01
 updated: 2016-10-01
+draft: false
 description: Look at this blog post for examples of layout options for the theme.
 image: coffee-mug.jpg
 categories: [category3]

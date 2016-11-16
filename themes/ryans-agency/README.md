@@ -1,5 +1,30 @@
+# Ryan's Agency
+
+This is a port of an internal-network-only website I made for my company's Digital Team.
+
+> The use case with respect to content types, models, etc is somewhat specific to our needs. Make sure to pay special attention to the archetypes and required fields. The complexity of the content types is also the reason I created the [site markdown editor][]. Keep this in mind. YMMV.
+
+## Here are just a *few* of the theme features:
+
+* Client-side search with lunr.js (see notes below on how to create your index)
+* Shortcodes
+  * Audio
+  * Video
+  * Data visualizations
+  * Callouts/admonishments (for docs)
+  * Improved code blocks (with "Copy" button)
+* [Markdown editor](https://ryans-agency-hugo-theme.netlify.com/editor)
+* Optional off-canvas Google Form (eg, Contact Form)
+* Team listing with deep linking
+* A whole slew of SEO optimizations in the templating
+
+## Configuration
+
+The following is full `config.toml` example for the Ryan's Agency theme:
+
+```
 archetypedir = "archetypes"
-baseurl = ""
+baseurl = "your-base-url.com"
 buildDrafts = false
 buildFuture = false
 canonifyurls = true
@@ -50,7 +75,7 @@ watch = true
 [params]
   sitesubtitle = ""
   ## organizationname is needed for structured data for SEO (ie, json+ld); see layouts/partials/
-	organizationname = "Your Organization Name"
+  organizationname = "Your Organization Name"
   ## Only CopyrightYear if auto-generated year based on last publish date is no longer working
   copyrightyear = ""
   sitedescription = "The official website of your company or name."
@@ -97,8 +122,7 @@ watch = true
   featuredbutton = true
   featuredbuttontext = "Featured"
   ## This sets the default hero bg color for list pages (eg, /docs)
-  defaultherobgcolor = "#0d568f"
-
+  defaultherobgcolor = "#01589B"
   ## Beging Homepage Variables
   [params.homepage]
     teamrowtitle = "Our Team"
@@ -107,11 +131,47 @@ watch = true
 ## Configuration for BlackFriday, the markdown parser used by Hugo
 ## blackfriday GH Repo: https://github.com/russross/blackfriday
 [blackfriday]
-	plainIDAnchors = true
-	hrefTargetBlank = true
+  plainIDAnchors = true
+  hrefTargetBlank = true
   angledQuotes = false
   latexDashes = true
 
 [taxonomies]
   tag = "tags"
   category = "categories"
+```
+
+## Content Types
+
+* Documentation
+* Team Member
+* Blog Post
+* Single Page
+
+Part of the templating includes `site-index.json`, which is used for live, client-side search in combination with [lunr.js][].
+
+## Full Documentation
+
+Full documentation for the theme can be found at <https://ryans-agency-hugo-theme.netlify.com/theme-docs/>.
+
+Downloading this theme will also include the `theme-docs` folder, which you can copy into `content/` and modify as needed if you would like to include documentation for content creators, editors, etc. This might be a nice feature for easier reference and to document additional features you create during your site development.
+
+## Adding the Search Index
+
+The templating for the search index is already included in the theme. To add the index, create a new markdown document at `content/singles/site-index.md` with the following front matter at the top of the document.
+
+```
+---
+title: Site Index dummy page
+subtitle:
+date: 2016-10-01
+publishdate: 2016-10-01
+type: json
+url: /assets/site-index.json
+---
+```
+
+This will create `/assets/site-index.json`.
+
+[lunr.js]: http://lunrjs.com/
+[site markdown editor]: https://ryans-agency-hugo-theme.netlify.com/editor/

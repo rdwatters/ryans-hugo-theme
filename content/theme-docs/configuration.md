@@ -1,5 +1,28 @@
+---
+title: Configuration
+subtitle:
+authors: [Ryan Watters]
+draft: false
+date: 2016-09-03
+publishdate: 2016-09-03
+updated: 2016-09-03
+description: Copy this sample configuration when building your site.
+weight: 01
+image:
+categories: []
+tags: []
+isdoc: true
+aliases: []
+removefromsearch: true
+comments:
+---
+
+The following is a complete `config.toml` example you should use when building out your site with this theme.
+
+{{% code "sample-theme-config" "config.toml" %}}
+```toml
 archetypedir = "archetypes"
-baseurl = ""
+baseurl = "your-base-url.com"
 buildDrafts = false
 buildFuture = false
 canonifyurls = true
@@ -50,7 +73,7 @@ watch = true
 [params]
   sitesubtitle = ""
   ## organizationname is needed for structured data for SEO (ie, json+ld); see layouts/partials/
-	organizationname = "Your Organization Name"
+  organizationname = "Your Organization Name"
   ## Only CopyrightYear if auto-generated year based on last publish date is no longer working
   copyrightyear = ""
   sitedescription = "The official website of your company or name."
@@ -98,7 +121,6 @@ watch = true
   featuredbuttontext = "Featured"
   ## This sets the default hero bg color for list pages (eg, /docs)
   defaultherobgcolor = "#0d568f"
-
   ## Beging Homepage Variables
   [params.homepage]
     teamrowtitle = "Our Team"
@@ -107,11 +129,13 @@ watch = true
 ## Configuration for BlackFriday, the markdown parser used by Hugo
 ## blackfriday GH Repo: https://github.com/russross/blackfriday
 [blackfriday]
-	plainIDAnchors = true
-	hrefTargetBlank = true
+  plainIDAnchors = true
+  hrefTargetBlank = true
   angledQuotes = false
   latexDashes = true
 
 [taxonomies]
   tag = "tags"
   category = "categories"
+```
+{{% /code %}}

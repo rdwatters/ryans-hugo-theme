@@ -4,6 +4,7 @@ subtitle: Subtitle for the site's first blog post
 date: 2016-08-01
 publishdate: 2016-08-01
 updated: 2016-08-01
+draft: false
 authors: [Jane Doe]
 description: Here is a description for the first blog post written for this site.
 image: video-camera.jpg

@@ -5,6 +5,7 @@ authors: [Jon Doe]
 date: 2016-09-01
 publishdate: 2016-09-01
 updated: 2016-09-01
+draft: false
 description: Here is a description for the second blog post written for this site.
 image:
 categories: [category2]

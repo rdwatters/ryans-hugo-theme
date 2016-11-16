@@ -1,0 +1,48 @@
+.edit-page{
+  display: none;
+  position:relative;
+  a {
+    color: $white;
+  }
+  .edit-on-github-wrapper-inner {
+    position: relative;
+    color: $white;
+    background-color: $brand-primary;
+    display: inline-block;
+    padding: .25em .5em;
+    border:2px solid $red;
+    &.docs {
+    	position:absolute;
+    	top:-2em;
+    	right:0px;
+      font-size: 40%;
+      em.page-edit-title {
+        display: none;
+      }
+    }
+    &.blog-post {
+      position:fixed;
+      top:70px;
+      right:1em;
+      z-index:9999;
+      width:350px;
+      font-size:.9em;
+    }
+  }
+  .edit-on-prose-wrapper-inner {
+    position:relative;
+  }
+}
+
+//digital-team page...
+
+.team-member-detail.team-member-detail-open {
+  .edit-page {
+    .edit-on-github-wrapper-inner {
+      top:70px;
+      right:90px;
+      font-size:.9em;
+      z-index:99;
+    }
+  }
+}

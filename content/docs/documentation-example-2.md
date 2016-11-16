@@ -1,5 +1,5 @@
 ---
-title: Documentation Example 2
+title: Doc Example 2
 subtitle: Documentation example 2 subtitle
 authors: [Jane Doe]
 draft: false

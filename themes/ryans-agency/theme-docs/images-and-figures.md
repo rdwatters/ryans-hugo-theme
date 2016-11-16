@@ -17,6 +17,8 @@ removefromsearch: true
 comments:
 ---
 
+## IN DEVELOPMENT
+
 {{% note title="Always Optimize Your Images" %}}
 Image size is one of the biggest culprits in slow page loading. *Make sure to optimize every image. There are multiple ways to optimize images, including Photoshop.
 
@@ -37,6 +39,8 @@ All blog post [content type][] instances requires a hero image. If you are using
 
 You will need to reference the image filename in the [front matter][] of your blog post. Your hero image should be optimized and
 
+
+
 ## 2. Images in Body Copy
 
 You can use standard markdown syntax for adding images to your content.
@@ -55,18 +59,6 @@ The syntax for images is similar to the syntax used for links, with an added `!`
 
 ![Aerial shot of Shibuya crossing in Tokyo, Japan](/assets/images/shibuya.jpg)
 
-If you want a shadow, you can also add a little helper class to the end of the images that will be appended on the client:
-
-{{% code "markdown-image-syntax-help-class" "markdown-image-syntax-with-helper.md" %}}
-```markdown
-![Aerial shot of Shibuya crossing in Tokyo, Japan](/assets/images/shibuya.jpg)
-```
-{{% /code %}}
-
-Which will output the following:
-
-![Aerial shot of Shibuya crossing in Tokyo, Japan. class=shadow](/assets/images/shibuya.jpg)
-
 {{% note title="Where to House Your Images" %}}
 For basic markdown syntax, you'll note that all examples for this site start with `/assets/images/`. This is because locally hosted images for the site are all kept at the root level. Also, developers can use the `sources-images` directory for local development that includes auto-resizing of images that are distributed across multiple directories.
 
@@ -76,6 +68,14 @@ If you want to include an image published elsewhere on the web in your content, 
 If you would like to practice the markdown syntax for images, you can go to the site [editor][] and switch to full-screen mode with the live preview.
 
 ![Screenshot of the split-screen mode for the site markdown editor with live preview](/assets/images/theme-docs/images-and-figures-1.gif)
+
+
+
+### Helper Classes for Additional Styling
+
+
+
+
 
 
 [audio]:#audio

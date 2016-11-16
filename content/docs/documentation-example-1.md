@@ -1,5 +1,5 @@
 ---
-title: Documentation Example 1
+title: Doc Example 1
 subtitle: Documentation example 1 subtitle
 authors: [Ryan Watters]
 draft: false

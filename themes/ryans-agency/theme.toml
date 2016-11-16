@@ -1,0 +1,21 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/spf13/hugoThemes#themetoml for an example
+
+name = "Ryan's Agency"
+license = "MIT"
+licenselink = "https://github.com/rdwatters/ryans-hugo-theme/blob/master/themes/LICENSE.md"
+description = "Basic agency or product site theme with blog post, documentation, and single-page content types; lunr.js client-side search, full theme documentation (/theme-docs)"
+homepage = "https://ryans-agency-hugo-theme.netlify.com/"
+tags = ["agency", "product","documentation","team"]
+features = ["documentation", "audio", "data visualizations", "code blocks", "shortcodes"]
+min_version = 0.17
+
+[author]
+  name = "Ryan Watters"
+  homepage = "https://ryanwatters.io"
+
+# If porting an existing theme
+[original]
+  name = ""
+  homepage = ""
+  repo = ""

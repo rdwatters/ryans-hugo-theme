@@ -1,5 +1,5 @@
 ---
-title: Documentation Example 3
+title: Doc Example 3
 subtitle: Documentation example 3 subtitle.
 authors: [Bob Johnson]
 draft: false

@@ -40,5 +40,7 @@ Remember that the shortcode still requires the GitHub-flavored [markdown][] trip
 {{% /code %}}
 </div>
 
+
+
 [compatible browser]: http://caniuse.com/#feat=document-execcommand
 [markdown]: #markdown
