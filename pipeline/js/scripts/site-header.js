@@ -34,14 +34,12 @@
     searchInputWrapper = $('.search-input-wrapper'),
     menuL = menuItems.length,
     menuFrac = (menuL - 1) / menuL,
-    iPhone = false;
-  if (thisOs === "iOS") {
-    iPhone = true;
-  }
-  var menuPerc = -(menuFrac * 100) + "%";
-  if (iPhone) {
-    menuPerc = "-40%";
-  }
+    iPhone = false,
+    menuPerc = -(menuFrac * 100) + "%";
+  // if (thisOs === "iOS") {
+  //   menuPerc = "-40%";
+  // }
+
   menuIcon.on('click', function(evt) {
     evt.preventDefault();
     evt.stopPropagation();
