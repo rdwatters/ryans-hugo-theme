@@ -55,11 +55,11 @@ The syntax for images is similar to the syntax used for links, with an added `!`
 
 ![Aerial shot of Shibuya crossing in Tokyo, Japan](/assets/images/shibuya.jpg)
 
-If you want a shadow, you can also add a little helper class to the end of the images that will be appended on the client:
+If you want a shadow, you can also add a little helper class to the end of the images that will be appended on the client. Any time you add `class=` with the class name after (and no parentheses), this class will be added to the image. This allows for further styling of images without needing to add full html `<img>` tags.
 
 {{% code "markdown-image-syntax-help-class" "markdown-image-syntax-with-helper.md" %}}
 ```markdown
-![Aerial shot of Shibuya crossing in Tokyo, Japan](/assets/images/shibuya.jpg)
+![Aerial shot of Shibuya crossing in Tokyo, Japan. class=shadow](/assets/images/shibuya.jpg)
 ```
 {{% /code %}}
 

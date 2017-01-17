@@ -127,8 +127,7 @@ div.code-copy-header {
   display: none;
   padding: 2px 4px;
   font-size: .8em;
-  font-weight: $base-font-bold-weight;
-  font-family: $heading-font-family;
+  font-weight: $base-font-weight;
   color: $white;
   text-align: center;
   text-transform: uppercase;
@@ -142,6 +141,7 @@ div.code-copy-header {
   background-color: $code-tooltip-bg-color;
   border-color: $code-tooltip-bg-color;
   border-radius: 0px;
+  font-family:$base-font-family;
   -webkit-font-smoothing: subpixel-antialiased
 }
 

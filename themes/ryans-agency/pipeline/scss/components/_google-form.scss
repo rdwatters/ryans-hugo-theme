@@ -14,6 +14,7 @@
   transform: translateY(100%);
   padding-top: 1.5em;
   overflow-y: scroll;
+  visibility: hidden;
   .form-heading {
     display: block;
     width: 100%;
@@ -33,6 +34,7 @@
     transition: transform .3s ease;
     transform: translateY(0%);
     overflow-y: scroll;
+    visibility:visible;
   }
   @include MQ(M) {
     transform: translateY(0%);
